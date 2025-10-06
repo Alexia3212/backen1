@@ -2,7 +2,8 @@ import express from 'express';
 import {ConnectDB} from './connectdb.js';
 import User from './model/user.js';
 import cors from 'cors';
-process.loadEnvFile();
+import dotenv from 'dotenv';
+dotenv.config({ optional: true });
 
 const app = express();
 
@@ -54,7 +55,7 @@ app.get('/health', (req, res) => {
   res.send('Server is healthy');
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
